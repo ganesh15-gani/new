@@ -1,4 +1,4 @@
-import "../styles/footer.css";
+import "../styles/Footer.css";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 
 export default function Footer() {

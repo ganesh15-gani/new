@@ -1,0 +1,1293 @@
+/* =========================================================
+   STAYZEN NAVBAR CSS - PART 1
+   Global + Desktop Layout + Logo + Navigation
+========================================================= */
+
+:root{
+
+  --primary:#00d68f;
+  --primary-dark:#00b377;
+
+  --dark:#070b12;
+  --dark2:#0f172a;
+
+  --light:#ffffff;
+
+  --text:#eef2ff;
+  --text-dark:#1e293b;
+
+  --glass:rgba(255,255,255,.08);
+  --glass-light:rgba(255,255,255,.75);
+
+  --border:rgba(255,255,255,.12);
+
+  --shadow:0 10px 35px rgba(0,0,0,.35);
+
+  --radius:18px;
+
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+[data-theme="light"]{
+
+  --dark:#f5f7fb;
+  --dark2:#ffffff;
+
+  --text:#1e293b;
+
+  --glass:rgba(255,255,255,.75);
+
+  --border:rgba(0,0,0,.08);
+
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* ========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:Inter,sans-serif;
+
+background:var(--dark);
+
+color:var(--text);
+
+overflow-x:hidden;
+
+}
+
+/* =====================================================
+NAVBAR
+===================================================== */
+
+.navbar{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+z-index:9999;
+
+transition:.35s;
+
+padding:18px 0;
+
+}
+
+.navbar.scrolled{
+
+padding:12px 0;
+
+background:rgba(8,10,20,.78);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 8px 25px rgba(0,0,0,.25);
+
+}
+
+[data-theme="light"] .navbar.scrolled{
+
+background:rgba(255,255,255,.92);
+
+}
+
+/* =====================================================
+CONTAINER
+===================================================== */
+
+.nav-container{
+
+width:min(1400px,92%);
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:30px;
+
+}
+
+/* =====================================================
+LOGO
+===================================================== */
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+
+text-decoration:none;
+
+user-select:none;
+
+}
+
+.logo-wrapper{
+
+position:relative;
+
+width:82px;
+
+height:82px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+/* Glow */
+
+.logo-glow{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+border-radius:50%;
+
+background:radial-gradient(circle,var(--primary),transparent 70%);
+
+filter:blur(22px);
+
+opacity:.6;
+
+animation:pulseGlow 4s infinite;
+
+}
+
+/* Circle */
+
+.logo-circle{
+
+position:relative;
+
+width:78px;
+
+height:78px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.15);
+
+backdrop-filter:blur(12px);
+
+overflow:hidden;
+
+transition:.45s;
+
+}
+
+.logo:hover .logo-circle{
+
+transform:rotateY(180deg) scale(1.08);
+
+box-shadow:0 0 30px rgba(0,214,143,.35);
+
+}
+
+/* SVG */
+
+.circle-text{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+animation:rotateCircle 16s linear infinite;
+
+fill:var(--primary);
+
+font-size:11px;
+
+font-weight:700;
+
+letter-spacing:3px;
+
+text-transform:uppercase;
+
+}
+
+/* Center */
+
+.logo-center{
+
+width:46px;
+
+height:46px;
+
+border-radius:50%;
+
+background:linear-gradient(135deg,#00d68f,#00ffd5);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:18px;
+
+font-weight:800;
+
+color:#04120d;
+
+box-shadow:0 0 20px rgba(0,214,143,.45);
+
+}
+
+/* Text */
+
+.logo-name{
+
+font-size:30px;
+
+font-weight:800;
+
+letter-spacing:.5px;
+
+background:linear-gradient(90deg,#fff,#00ffd5);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+[data-theme="light"] .logo-name{
+
+background:linear-gradient(90deg,#111827,#00b377);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+/* =====================================================
+DESKTOP LINKS
+===================================================== */
+
+.nav-links{
+
+display:flex;
+
+align-items:center;
+
+gap:38px;
+
+}
+
+/* ==========================
+   DESKTOP NAV LINKS
+========================== */
+
+.nav-links a{
+  position: relative;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 30px;
+  transition: all .35s ease;
+}
+
+/* Hover */
+
+.nav-links a:hover{
+
+  background: #00d68f;
+
+  color: #ffffff;
+
+  box-shadow: 0 10px 25px rgba(0,214,143,.35);
+
+}
+
+/* Underline remove */
+
+.nav-links a::after{
+  display: none;
+}
+
+
+.nav-links a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-7px;
+
+width:0;
+
+height:2px;
+
+background:var(--primary);
+
+transition:.35s;
+
+}
+
+.nav-links a:hover::after{
+
+width:100%;
+
+}
+
+/* =====================================================
+ANIMATIONS
+===================================================== */
+
+@keyframes rotateCircle{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes pulseGlow{
+
+0%{
+
+transform:scale(.9);
+
+opacity:.4;
+
+}
+
+50%{
+
+transform:scale(1.15);
+
+opacity:.8;
+
+}
+
+100%{
+
+transform:scale(.9);
+
+opacity:.4;
+
+}
+
+}
+/* =========================================================
+   STAYZEN NAVBAR CSS - PART 2
+   Buttons + Theme + Mobile Menu
+========================================================= */
+
+/* ==========================
+   RIGHT ACTIONS
+========================== */
+
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+/* ==========================
+   THEME BUTTON
+========================== */
+
+.theme-btn{
+  width:46px;
+  height:46px;
+  border:none;
+  outline:none;
+  border-radius:50%;
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:var(--glass);
+  color:var(--text);
+
+  border:1px solid var(--border);
+
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+
+  transition:.35s ease;
+}
+
+.theme-btn svg{
+  font-size:20px;
+}
+
+.theme-btn:hover{
+
+  transform:translateY(-4px) rotate(180deg);
+
+  background:var(--primary);
+
+  color:#fff;
+
+  box-shadow:0 0 20px rgba(0,214,143,.35);
+
+}
+
+/* ==========================
+   LOGIN BUTTON
+========================== */
+
+.login-btn{
+
+  height:46px;
+
+  padding:0 22px;
+
+  border-radius:50px;
+
+  border:1px solid var(--border);
+
+  background:transparent;
+
+  color:var(--text);
+
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  cursor:pointer;
+
+  font-size:15px;
+
+  font-weight:600;
+
+  transition:.35s;
+
+}
+
+.login-btn svg{
+
+font-size:18px;
+
+}
+
+.login-btn:hover{
+
+background:var(--glass);
+
+transform:translateY(-3px);
+
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+/* ==========================
+   ENROLL BUTTON
+========================== */
+
+.enroll-btn{
+
+height:48px;
+
+padding:0 26px;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:50px;
+
+font-size:15px;
+
+font-weight:700;
+
+color:#fff;
+
+background:linear-gradient(
+135deg,
+#00d68f,
+#00b377
+);
+
+transition:.35s;
+
+box-shadow:0 12px 25px rgba(0,214,143,.30);
+
+}
+
+.enroll-btn:hover{
+
+transform:translateY(-4px) scale(1.03);
+
+box-shadow:0 16px 35px rgba(0,214,143,.45);
+
+}
+
+/* ==========================
+   HAMBURGER
+========================== */
+
+.menu-btn{
+
+display:none;
+
+width:46px;
+
+height:46px;
+
+border-radius:50%;
+
+border:1px solid var(--border);
+
+background:var(--glass);
+
+backdrop-filter:blur(12px);
+
+cursor:pointer;
+
+color:var(--text);
+
+transition:.35s;
+
+}
+
+.menu-btn svg{
+
+font-size:24px;
+
+}
+
+.menu-btn:hover{
+
+background:var(--primary);
+
+color:#fff;
+
+transform:rotate(90deg);
+
+}
+
+/* ==========================
+   MOBILE MENU
+========================== */
+
+.mobile-menu{
+
+position:fixed;
+
+top:0;
+
+right:-100%;
+
+width:330px;
+
+max-width:100%;
+
+height:100vh;
+
+padding:100px 35px 40px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:24px;
+
+background:rgba(8,10,20,.96);
+
+backdrop-filter:blur(22px);
+
+-webkit-backdrop-filter:blur(22px);
+
+border-left:1px solid rgba(255,255,255,.08);
+
+transition:.45s ease;
+
+z-index:99999;
+
+overflow-y:auto;
+
+}
+
+[data-theme="light"] .mobile-menu{
+
+background:rgba(255,255,255,.98);
+
+}
+
+.mobile-menu.active{
+
+right:0;
+
+}
+
+/* ==========================
+   CLOSE BUTTON
+========================== */
+
+.mobile-close{
+
+position:absolute;
+
+top:28px;
+
+right:24px;
+
+width:46px;
+
+height:46px;
+
+border:none;
+
+border-radius:50%;
+
+cursor:pointer;
+
+background:var(--glass);
+
+border:1px solid var(--border);
+
+color:var(--text);
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+transition:.35s;
+
+}
+
+.mobile-close svg{
+
+font-size:24px;
+
+}
+
+.mobile-close:hover{
+
+background:#ff4d4d;
+
+color:#fff;
+
+transform:rotate(180deg);
+
+}
+
+/* ==========================
+   MOBILE LINKS
+========================== */
+
+.mobile-menu a{
+
+text-decoration:none;
+
+font-size:20px;
+
+font-weight:600;
+
+color:var(--text);
+
+transition:.35s;
+
+padding:12px 0;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.mobile-menu a:hover{
+
+padding-left:12px;
+
+color:var(--primary);
+
+}
+
+/* ==========================
+   MOBILE THEME BUTTON
+========================== */
+
+.mobile-theme-btn{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:12px;
+
+height:52px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+background:var(--glass);
+
+border:1px solid var(--border);
+
+color:var(--text);
+
+font-size:16px;
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+.mobile-theme-btn:hover{
+
+background:var(--primary);
+
+color:#fff;
+
+}
+
+/* ==========================
+   MOBILE LOGIN
+========================== */
+
+.mobile-login{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+height:52px;
+
+border-radius:50px;
+
+border:1px solid var(--border);
+
+background:transparent;
+
+color:var(--text);
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+.mobile-login:hover{
+
+background:var(--glass);
+
+}
+
+/* ==========================
+   MOBILE ENROLL
+========================== */
+
+.mobile-enroll{
+
+height:54px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:700;
+
+color:#fff;
+
+background:linear-gradient(
+135deg,
+#00d68f,
+#00b377
+);
+
+transition:.35s;
+
+box-shadow:0 12px 30px rgba(0,214,143,.30);
+
+}
+
+.mobile-enroll:hover{
+
+transform:translateY(-3px);
+
+}
+
+/* ==========================
+   OVERLAY
+========================== */
+
+.menu-overlay{
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.55);
+
+backdrop-filter:blur(3px);
+
+z-index:9990;
+
+animation:fadeOverlay .3s ease;
+
+}
+
+@keyframes fadeOverlay{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+/* =========================================================
+   STAYZEN NAVBAR CSS - PART 3
+   Responsive + Final Polish
+=========================================================*/
+
+/* =========================
+   LARGE DESKTOP
+========================= */
+
+@media (max-width:1400px){
+
+.nav-container{
+width:94%;
+}
+
+.nav-links{
+gap:30px;
+}
+
+.logo-name{
+font-size:28px;
+}
+
+}
+
+/* =========================
+   LAPTOP
+========================= */
+
+@media (max-width:1200px){
+
+.nav-links{
+gap:24px;
+}
+
+.nav-links a{
+font-size:15px;
+}
+
+.login-btn,
+.enroll-btn{
+padding:0 18px;
+}
+
+.logo-wrapper{
+width:72px;
+height:72px;
+}
+
+.logo-circle{
+width:70px;
+height:70px;
+}
+
+.logo-center{
+width:42px;
+height:42px;
+font-size:16px;
+}
+
+.logo-name{
+font-size:26px;
+}
+
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width:992px){
+
+.nav-links,
+.login-btn,
+.enroll-btn{
+display:none;
+}
+
+.menu-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.logo-wrapper{
+width:68px;
+height:68px;
+}
+
+.logo-circle{
+width:66px;
+height:66px;
+}
+
+.logo-center{
+width:40px;
+height:40px;
+font-size:15px;
+}
+
+.circle-text{
+font-size:10px;
+letter-spacing:2px;
+}
+
+.logo-name{
+font-size:24px;
+}
+
+.nav-container{
+width:94%;
+}
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:768px){
+
+.navbar{
+padding:12px 0;
+}
+
+.navbar.scrolled{
+padding:10px 0;
+}
+
+.nav-container{
+width:92%;
+}
+
+.logo{
+gap:10px;
+}
+
+.logo-wrapper{
+width:60px;
+height:60px;
+}
+
+.logo-circle{
+width:58px;
+height:58px;
+}
+
+.logo-center{
+width:34px;
+height:34px;
+font-size:14px;
+}
+
+.circle-text{
+font-size:8px;
+letter-spacing:1.5px;
+}
+
+.logo-name{
+font-size:21px;
+}
+
+.theme-btn,
+.menu-btn{
+width:42px;
+height:42px;
+}
+
+.theme-btn svg,
+.menu-btn svg{
+font-size:20px;
+}
+
+.mobile-menu{
+width:290px;
+padding:90px 24px 35px;
+gap:20px;
+}
+
+.mobile-menu a{
+font-size:18px;
+}
+
+.mobile-login,
+.mobile-theme-btn,
+.mobile-enroll{
+height:50px;
+font-size:15px;
+}
+
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width:480px){
+
+.nav-container{
+width:94%;
+}
+
+.logo-wrapper{
+width:54px;
+height:54px;
+}
+
+.logo-circle{
+width:52px;
+height:52px;
+}
+
+.logo-center{
+width:30px;
+height:30px;
+font-size:13px;
+}
+
+.logo-name{
+font-size:18px;
+}
+
+.theme-btn,
+.menu-btn{
+width:40px;
+height:40px;
+}
+
+.theme-btn svg,
+.menu-btn svg{
+font-size:18px;
+}
+
+.mobile-menu{
+width:100%;
+padding:85px 22px 30px;
+border-left:none;
+}
+
+.mobile-close{
+top:22px;
+right:18px;
+width:42px;
+height:42px;
+}
+
+.mobile-menu a{
+font-size:17px;
+padding:10px 0;
+}
+
+.mobile-theme-btn,
+.mobile-login,
+.mobile-enroll{
+height:48px;
+font-size:15px;
+}
+
+}
+
+/* =========================
+   EXTRA SMALL DEVICES
+========================= */
+
+@media (max-width:360px){
+
+.logo-wrapper{
+width:50px;
+height:50px;
+}
+
+.logo-circle{
+width:48px;
+height:48px;
+}
+
+.logo-center{
+width:28px;
+height:28px;
+font-size:12px;
+}
+
+.circle-text{
+font-size:7px;
+}
+
+.logo-name{
+font-size:16px;
+}
+
+.nav-actions{
+gap:8px;
+}
+
+.theme-btn,
+.menu-btn{
+width:38px;
+height:38px;
+}
+
+}
+
+/* =========================
+   HOVER EFFECTS
+========================= */
+
+.logo,
+.nav-links a,
+.theme-btn,
+.login-btn,
+.enroll-btn,
+.menu-btn,
+.mobile-menu a,
+.mobile-login,
+.mobile-theme-btn,
+.mobile-enroll{
+transition:all .35s ease;
+}
+
+button{
+font-family:inherit;
+}
+
+/* =========================
+   REMOVE TAP HIGHLIGHT
+========================= */
+
+a,
+button{
+-webkit-tap-highlight-color:transparent;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.mobile-menu::-webkit-scrollbar{
+width:6px;
+}
+
+.mobile-menu::-webkit-scrollbar-thumb{
+background:#00d68f;
+border-radius:20px;
+}
+
+.mobile-menu::-webkit-scrollbar-track{
+background:transparent;
+}
+
+/* =========================
+   PREVENT HORIZONTAL SCROLL
+========================= */
+
+html,
+body{
+overflow-x:hidden;
+width:100%;
+}
+
+.navbar,
+.nav-container{
+max-width:100%;
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+button:focus,
+a:focus{
+outline:none;
+}
+
+/* =========================
+   END
+========================= */

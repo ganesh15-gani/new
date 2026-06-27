@@ -1,0 +1,27 @@
+:root{
+  --bg-primary:#07131F;
+  --bg-secondary:#091825;
+
+  --heading-color:#ffffff;
+  --text-color:#CBD5E1;
+
+  --card-bg:rgba(255,255,255,.05);
+  --border-color:rgba(255,255,255,.08);
+
+  --shadow:0 20px 45px rgba(0,0,0,.25);
+}
+
+[data-theme="light"]{
+
+  --bg-primary:#F8FAFC;
+  --bg-secondary:#FFFFFF;
+
+  --heading-color:#0F172A;
+  --text-color:#475569;
+
+  --card-bg:#ffffff;
+  --border-color:rgba(0,0,0,.08);
+
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
